@@ -1,16 +1,13 @@
 ---
-- hosts: all
+- hosts: demo[0]
   become: yes
 
   tasks:
 
     - name: create docker image using war file
-      command: docker build -t devops-project:latest .
+      command: docker build -t devopsnike/devops-project .
       args:
         chdir: /opt/docker
-
-    - name: create tag to image
-      command: docker tag devops-project devopsnike/devops-project
 
     - name: push image on to dockerhub
       command: docker push devopsnike/devops-project
