@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: demo[1]
   become: yes
 
   tasks:
