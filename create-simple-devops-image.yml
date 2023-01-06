@@ -9,10 +9,15 @@
       command: docker build -t devopsnike/devops-project .
       args:
         chdir: /opt/docker
+        
+     - name: create docker image using war file
+      command: docker tag devopsnike/devops-project devopsnike/devops-project:latest
+      args:
+        chdir: /opt/docker
 
     - name: push image on to dockerhub
-      command: docker push devopsnike/devops-project
+      command: docker push devopsnike/devops-project:latest
 
     - name: remove docker images from ansible server
-      command: docker image rm tomcat devopsnike/devops-project devops-project
+      command: docker image rm $(docker image ls -aq)
       ignore_errors: yes
