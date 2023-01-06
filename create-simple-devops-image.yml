@@ -18,9 +18,7 @@
     - name: push image on to dockerhub
       command: docker push devopsnike/devops-project:latest
 
-    - name: remove docker images from ansible server
-      command: docker image rm devopsnike/devops-project devopsnike/devops-project:latest
-      ignore_errors: yes
+    
 
 
 
