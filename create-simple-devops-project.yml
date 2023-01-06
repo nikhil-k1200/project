@@ -14,7 +14,7 @@
       ignore_errors: yes
 
     - name: remove current docker image
-      command: docker image rm $(docker image ls -aq)
+      command: docker image prune -f
       ignore_errors: yes
 
     - name: pull docker image from dockerhub
